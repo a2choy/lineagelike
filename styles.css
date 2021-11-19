@@ -1,0 +1,130 @@
+/*basic css*/
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+* {
+    font-family: Raleway;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    border-bottom: 1px solid black;
+    font-size: larger;
+    padding: 10px;
+}
+
+button {
+    display: block;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black;
+}
+
+button:hover {
+    background-color: #AAA;
+}
+
+/*tabs in html main page*/
+
+[data-tab-main-content] {
+    display: none;
+}
+
+.active[data-tab-main-content] {
+    display: block;
+}
+
+.tabs {
+    display: block;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid black;
+    width: 100px;
+    float: left;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.tab.active {
+    background-color: #CCC;
+    border-bottom: 1px solid black;
+}
+
+.tab:hover {
+    background-color: #AAA;
+}
+
+.tab-content {
+    margin-left: 20px;
+    margin-right: 20px;
+    float: left;
+}
+
+/*export and import*/
+
+.bg-modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.export-popup{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 4px;
+    display: none;
+    background-color: white;
+}
+
+.import-popup{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 4px;
+    display: none;
+    background-color: white;
+}
+
+/*hp bar css*/
+.hp-bar{
+    position: relative;
+    width: 130px;
+    height: 20px;
+    border: 1px solid black;
+}
+
+.hp-bar-fill{
+    height:100%;
+    background: #59ea63;
+    transition: width 0.5s;
+}
+
+.hp-bar-value{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}

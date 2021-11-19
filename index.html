@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="tabs.js" defer></script>
+    <script src="town.js" defer></script>
+    <script src="dungeon.js" defer></script>
+    <script src="hero.js" defer></script>
+
+    <!--<script src="save.js" defer></script>-->
+
+    <link href="styles.css" rel="stylesheet" />
+    <link href="styles_town.css" rel="stylesheet" />
+    <link href="styles_dungeon.css" rel="stylesheet" />
+    <link href="styles_hero.css" rel="stylesheet" />
+    <title>Kitten IRPG</title>
+  </head>
+
+  <body>
+    <div class="bg-modal">
+      <div class="export-popup">
+        <input style="display: inline-block" type="text" id="export_save_data" readonly>
+        <button style="display: inline-block" onclick="copy_save()">Export save data</button>
+        <button style="display: inline-block" onclick="exit_popup()">x</button>
+      </div>
+      <div class="import-popup">
+        <input style="display: inline-block" type="text" id="import_save_data">
+        <button style="display: inline-block" onclick="import_save()">Import save data</button>
+        <button style="display: inline-block" onclick="exit_popup()">x</button>
+      </div>
+    </div>
+    <header>
+      <p style="display: inline-block">Kitten Idle RPG v0.1</p>
+      <button style="display: inline-block" onclick="save_game()">Save Game</button>
+      <button style="display: inline-block" onclick="export_game()">Export Game</button>
+      <button style="display: inline-block" onclick="import_game()">Import Game</button>
+      
+    </header>
+    <ul class="tabs">
+      <li data-tab-main="#dungeons" class="tab">Dungeons</li>
+      <li data-tab-main="#heroes" class="active tab">Heroes</li>
+      <li data-tab-main="#town" class="tab">Town</li>
+      <li data-tab-main="#tavern" class="tab">Tavern</li>
+      <li data-tab-main="#research" class="tab">Research</li>
+      <li data-tab-main="#blacksmith" class="tab">Blacksmith</li>
+      <li data-tab-main="#alchemists" class="tab">Alchemists</li>
+      <li data-tab-main="#stash" class="tab">Stash</li>
+      <li data-tab-main="#tba" class="tab">TBA</li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="dungeons" data-tab-main-content>
+        <div>
+          <h1 style="display: inline-block">Dungeons</h1>
+          <button
+            data-tab-dungeon="#main_dungeon"
+            style="display: inline-block">
+            Back
+          </button>
+        </div>
+        <div id="main_dungeon" data-tab-dungeon-content class="active">
+          <div class="grid-dungeon-container">
+            <div>
+              <img
+                id="cave_dungeon"
+                src="./cave_dungeon.png"
+                alt="Cave"
+                style="width: 100px; height: 100px"/>
+              <p>Cave (level 1)</p>
+              <button data-tab-dungeon="#cave_1">Enter Dungeon</button>
+              <button class="auto_farm">Auto-Farm</button>
+            </div>
+            <div>
+              <img
+                id="castle_dungeon"
+                src="./castle_dungeon.png"
+                alt="Castle"
+                style="width: 100px; height: 150px"/>
+              <p>Castle (level 5)</p>
+              <button data-tab-dungeon="#castle_1">Enter Dungeon</button>
+              <button class="auto_farm">Auto-Farm</button>
+            </div>
+            <div>
+              <img
+                id="mountain_dungeon"
+                src="./mountain_dungeon.jpg"
+                alt="Mountain"
+                style="width: 100px; height: 100px"/>
+              <p>Mountain (level 10)</p>
+              <button data-tab-dungeon="#mountain_1">Enter Dungeon</button>
+              <button class="auto_farm">Auto-Farm</button>
+            </div>
+            <div>
+              <img
+                id="cave_dungeon_2"
+                src="./cave_dungeon.png"
+                alt="Cave"
+                style="width: 100px; height: 100px"
+              />
+              <p>Cave 2 (level 20)</p>
+              <button data-tab-dungeon="#cave_2">Enter Dungeon</button>
+              <button class="auto_farm">Auto-Farm</button>
+            </div>
+            <div>
+              <img
+                id="castle_dungeon_2"
+                src="./castle_dungeon.png"
+                alt="Castle"
+                style="width: 100px; height: 150px"
+              />
+              <p>Castle (level 25)</p>
+              <button data-tab-dungeon="#castle_2">Enter Dungeon</button>
+              <button class="auto_farm">Auto-Farm</button>
+            </div>
+            <div>
+              <img
+                id="mountain_dungeon_2"
+                src="./mountain_dungeon.jpg"
+                alt="Mountain"
+                style="width: 100px; height: 100px"
+              />
+              <p>Mountain (level 30)</p>
+              <button data-tab-dungeon="#mountain_2">Enter Dungeon</button>
+              <button class="auto_farm">Auto-Farm</button>
+            </div>
+          </div>
+        </div>
+        <div id="cave_1" data-tab-dungeon-content>
+          <p>cave 1</p>
+        </div>
+        <div id="castle_1" data-tab-dungeon-content>
+          <p>castle 1</p>
+        </div>
+        <div id="mountain_1" data-tab-dungeon-content>
+          <p>mountain 1</p>
+        </div>
+        <div id="cave_2" data-tab-dungeon-content>
+          <p>cave 2</p>
+        </div>
+        <div id="castle_2" data-tab-dungeon-content>
+          <p>castle 2</p>
+        </div>
+        <div id="mountain_2" data-tab-dungeon-content>
+          <p>mountain 2</p>
+        </div>
+      </div>
+      <div id="heroes" data-tab-main-content class="active">
+        <h1>Heroes</h1>
+        <div id="selected_hero" class="flex-hero-selected">
+          <div id="hero_1" class="flex-hero-element">
+          </div>
+          <div id="hero_2" class="flex-hero-element">
+          </div>
+          <div id="hero_3" class="flex-hero-element">
+          </div>
+          <div id="hero_4" class="flex-hero-element">
+          </div>
+        </div>
+        <div id="grid_hero" class="grid-hero-container">
+        </div>
+      </div>
+      <div id="town" data-tab-main-content>
+        <div class="town_img_container">
+          <img class="town_img" src="./town.jpg" alt="Your town" />
+          <button data-tab-town="#town_hall" class="town_hall_btn">
+            Town Hall
+          </button>
+          <button data-tab-town="#mine" class="mine_btn">Mine</button>
+          <button data-tab-town="#lumber_mill" class="lumber_mill_btn">
+            Lumber Mill
+          </button>
+        </div>
+        <div id="town_hall" data-tab-town-content class="active">
+          <ul class="town_hall_ul">
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Buildings</li>
+                <li class="building_cost">Cost</li>
+                <li class="building_build">Build</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Town Hall</li>
+                <li class="building_cost">120 wood</li>
+                <li id="town_hall_build" class="build_btn">Level 2</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Mine</li>
+                <li class="building_cost">100 wood</li>
+                <li id="mine_build" class="build_btn">Level 2</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Lumber Mill</li>
+                <li class="building_cost">100 wood</li>
+                <li id="lumber_mill_build" class="build_btn">Level 3</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Hunting Camp</li>
+                <li class="building_cost">100 wood</li>
+                <li id="hunting_build" class="build_btn">Level 3</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Farm</li>
+                <li class="building_cost">100 wood</li>
+                <li id="farm_build" class="build_btn">Level 3</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Storage</li>
+                <li class="building_cost">100 wood</li>
+                <li id="storage_build" class="build_btn">Level 3</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Tavern</li>
+                <li class="building_cost">100 wood</li>
+                <li id="tavern_build" class="build_btn">Level 3</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Laboratory</li>
+                <li class="building_cost">100 wood</li>
+                <li id="laboratory_build" class="build_btn">Level 3</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Blacksmith</li>
+                <li class="building_cost">100 wood</li>
+                <li id="blacksmith_build" class="build_btn">Level 3</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Jewelers</li>
+                <li class="building_cost">100 wood</li>
+                <li id="jewelers_build" class="build_btn">Level 3</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Alchemists</li>
+                <li class="building_cost">100 wood</li>
+                <li id="alchemists_build" class="build_btn">Level 3</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="town_buildings">
+                <li class="building_list">Shrine</li>
+                <li class="building_cost">100 wood</li>
+                <li id="shrine_build" class="build_btn">Level 3</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div id="mine" data-tab-town-content>
+          <h1>Mine</h1>
+          <p>Let me tell you about me</p>
+        </div>
+        <div id="lumber_mill" data-tab-town-content>
+          <h1>Lumber Mill</h1>
+          <p>Let me tell you about me</p>
+        </div>
+      </div>
+      <div id="tavern" data-tab-main-content>
+        <h1>Tavern</h1>
+        <p>Let me tell you about me</p>
+      </div>
+      <div id="research" data-tab-main-content>
+        <h1>Research</h1>
+        <p>Some information on pricing</p>
+      </div>
+      <div id="blacksmith" data-tab-main-content>
+        <h1>Blacksmith</h1>
+        <p>Let me tell you about me</p>
+      </div>
+      <div id="alchemists" data-tab-main-content>
+        <h1>Alchemists</h1>
+        <p>This is the home</p>
+      </div>
+      <div id="stash" data-tab-main-content>
+        <h1>Stash</h1>
+        <p>Some information on pricing</p>
+      </div>
+      <div id="tba" data-tab-main-content>
+        <h1>TBA</h1>
+        <p>Let me tell you about me</p>
+      </div>
+    </div>
+  </body>
+</html>

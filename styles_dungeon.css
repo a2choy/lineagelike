@@ -1,0 +1,20 @@
+/*dungeon tabs and grid css*/
+
+[data-tab-dungeon-content] {
+  display: none;
+}
+
+.active[data-tab-dungeon-content] {
+  display: block;
+}
+
+.grid-dungeon-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 100px;
+  padding: 10px;
+}
+
+.auto_farm {
+  margin-top: 5px;
+}

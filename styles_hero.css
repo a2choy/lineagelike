@@ -1,0 +1,39 @@
+.grid-hero-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 100px;
+  padding: 10px;
+}
+
+.flex-hero-selected {
+  display : flex;
+  gap: 100px;
+  padding: 10px;
+}
+
+.flex-hero-element {
+  border: 1px solid black;
+  width: 148px;
+  height: 248px;
+  padding: 5px;
+}
+
+.flex-hero-element:hover {
+  border: 1px solid black;
+  width: 148px;
+  height: 248px;
+  padding: 5px;
+}
+
+.grid-hero-element {
+  width: 150px;
+  height: 250px;
+  padding: 5px;
+}
+
+.grid-hero-element:hover {
+  border: 1px solid black;
+  width: 148px;
+  height: 248px;
+  padding: 5px;
+}

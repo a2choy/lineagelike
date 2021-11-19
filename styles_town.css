@@ -1,0 +1,86 @@
+/*town tabs and image*/
+
+[data-tab-town-content] {
+    display: none;
+}
+
+.active[data-tab-town-content] {
+    display: block;
+    float: left;
+}
+
+.town_img_container{
+    float: left;
+    position: relative;
+}
+
+.town_img{
+    width: 100%;
+}
+
+.town_img_container .town_hall_btn{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+}
+
+.town_img_container .mine_btn{
+    position: absolute;
+    top: 10%;
+    left: 3%;
+}
+
+.town_img_container .lumber_mill_btn{
+    position: absolute;
+    top: 85%;
+    left: 75%;
+}
+
+.town_hall_ul{
+    list-style: none;
+}
+
+.town_buildings{
+    list-style: none;
+}
+
+/*town hall css*/
+
+.building_list{
+    border: 1px solid black;
+    padding-left: 5px;
+    margin-top: -1px;
+    width: 120px;
+    float: left;
+}
+
+.building_cost{
+    border: 1px solid black;
+    margin-left: -1px;
+    margin-top: -1px;
+    padding-left: 5px;
+    width: 250px;
+    float: left;
+}
+
+.building_build{
+    border: 1px solid black;
+    margin-left: -1px;
+    margin-top: -1px;
+    padding-left: 5px;
+    width: 70px;
+    float: left;
+}
+
+.build_btn{
+    border: 1px solid black;
+    margin-left: -1px;
+    margin-top: -1px;
+    padding-left: 5px;
+    width: 70px;
+    float: left;
+}
+
+.build_btn:hover{
+    background-color: #DDD;
+}
